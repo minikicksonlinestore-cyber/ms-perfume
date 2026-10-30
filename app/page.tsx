@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import ScrollProgress from "@/components/ScrollProgress";
+import RevealObserver from "@/components/RevealObserver";
 import BackToTop from "@/components/BackToTop";
 import Reveal from "@/components/Reveal";
 import Sparkles from "@/components/Sparkles";
@@ -24,12 +25,13 @@ export default function Home() {
   return (
     <>
       <ScrollProgress />
+      <RevealObserver />
       <Navbar />
       <BackToTop />
       <main>
         <section id="home" className="relative flex min-h-screen items-end overflow-hidden bg-ink pb-24 pt-[340px] lg:items-center lg:pt-28">
           <div className="absolute inset-x-0 top-0 h-[470px] lg:inset-y-0 lg:left-auto lg:right-0 lg:h-auto lg:w-[66%]">
-            <Image src="/hero.jpg" alt="MS PERFUME Eau de Parfum bottle on aged oud wood with amber leaves" fill priority sizes="(min-width: 1024px) 66vw, 100vw" className="object-cover object-[62%_38%] lg:object-center" />
+            <Image src="/hero.webp" alt="MS PERFUME Eau de Parfum bottle on aged oud wood with amber leaves" fill preload fetchPriority="high" sizes="(min-width: 1024px) 66vw, 100vw" className="object-cover object-[62%_38%] lg:object-center" />
             <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-transparent to-ink lg:bg-gradient-to-r lg:from-ink lg:via-ink/50 lg:to-transparent" />
             <div className="absolute inset-x-0 bottom-0 hidden h-40 bg-gradient-to-t from-ink to-transparent lg:block" />
           </div>
@@ -67,7 +69,7 @@ export default function Home() {
               <a href={COMPANY.phoneHref} aria-label="Call" className={iconBtn}><Icon name="phone" className="h-5 w-5" /></a>
               <a href={`mailto:${COMPANY.email}`} aria-label="Email" className={iconBtn}><Icon name="mail" className="h-5 w-5" /></a>
             </div>
-            <a href="#about" className="flex flex-col items-center gap-2 text-[.65rem] uppercase tracking-[.4em] text-cream/60">
+            <a href="#about" aria-label="Scroll to About Us" className="flex flex-col items-center gap-2 text-[.65rem] uppercase tracking-[.4em] text-cream/60">
               <span className="hidden sm:block">Scroll to discover</span>
               <span className="block h-10 w-px animate-scroll bg-gradient-to-b from-orange to-transparent" />
             </a>
@@ -122,7 +124,7 @@ export default function Home() {
               <Reveal key={p.name} delay={(i % 3) * 120} className="card card-bare group !p-0">
                 {p.image ? (
                   <div className="relative aspect-square w-full bg-[radial-gradient(closest-side_at_50%_58%,rgba(217,99,30,.30),transparent)]">
-                    <Image src={p.image} alt={`${p.brand} ${p.name} ${p.type}`} width={520} height={520} className="absolute inset-x-[10%] bottom-[7%] top-[18%] h-[75%] w-[80%] object-contain object-bottom drop-shadow-[0_18px_22px_rgba(0,0,0,.65)] transition duration-700 group-hover:-translate-y-1.5 group-hover:scale-105" />
+                    <Image src={p.image} alt={`${p.brand} ${p.name} ${p.type}`} width={520} height={520} unoptimized className="absolute inset-x-[10%] bottom-[7%] top-[18%] h-[75%] w-[80%] object-contain object-bottom drop-shadow-[0_18px_22px_rgba(0,0,0,.65)] transition duration-700 group-hover:-translate-y-1.5 group-hover:scale-105" />
                     <div className="absolute inset-x-[22%] bottom-[5%] h-3 rounded-[50%] bg-black/60 blur-md" />
                     <span className="absolute left-2.5 top-2.5 rounded-full border border-white/10 bg-ink/75 px-2.5 py-1 text-[.52rem] uppercase tracking-[.16em] text-orange-light backdrop-blur sm:left-4 sm:top-4 sm:px-3 sm:text-[.62rem] sm:tracking-[.2em]">{p.brand}</span>
                   </div>
@@ -171,7 +173,7 @@ export default function Home() {
             <Reveal>
               <figure className="relative">
                 <div className="overflow-hidden rounded-[1.6rem] border border-orange/25 shadow-[0_30px_80px_rgba(0,0,0,.55)] sm:rounded-[2rem]">
-                  <Image src="/store.jpg" alt="MS PERFUME storefront with lit shelves of perfumes, oud and gifts" width={1400} height={1050} className="h-auto w-full" />
+                  <Image src="/store.webp" alt="MS PERFUME storefront with lit shelves of perfumes, oud and gifts" width={1400} height={1050} sizes="(min-width: 1024px) 55vw, 100vw" className="h-auto w-full" />
                 </div>
                 <figcaption className="absolute -bottom-5 left-4 flex items-center gap-3 rounded-full border border-orange/40 bg-ink/90 py-2 pl-2 pr-5 backdrop-blur sm:left-8">
                   <span className="grid h-10 w-10 place-items-center rounded-full bg-orange/15 text-orange-light"><Icon name="pin" className="h-5 w-5" /></span>
@@ -275,7 +277,7 @@ export default function Home() {
           <div className="grid gap-10 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-[1.4fr_1fr] lg:gap-20">
             <div>
               <div className="flex items-center justify-center gap-3 font-serif text-2xl tracking-wide text-cream sm:justify-start">
-                <Image src="/logo-sm.png" alt="" width={79} height={64} className="h-auto w-[64px] drop-shadow-[0_6px_18px_rgba(217,99,30,.45)] sm:w-[56px]" /><span>MS PERFUME<span className="text-orange">.</span></span>
+                <Image src="/logo-sm.webp" alt="" width={79} height={64} unoptimized className="h-auto w-[64px] drop-shadow-[0_6px_18px_rgba(217,99,30,.45)] sm:w-[56px]" /><span>MS PERFUME<span className="text-orange">.</span></span>
               </div>
               <p className="mt-3 font-serif text-xl italic text-champagne/90">The art of Arabian scent.</p>
               <div className="divider mx-auto mt-5 sm:mx-0" />
