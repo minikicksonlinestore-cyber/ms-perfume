@@ -18,7 +18,7 @@ const jsonLd = {
   name: COMPANY.brand,
   legalName: COMPANY.legalName,
   description: "Oud, amber, musk and rose fragrances from Muscat, Oman.",
-  telephone: "+96894247885",
+  telephone: ["+96894247885", "+96876434164"],
   email: COMPANY.email,
   address: {
     "@type": "PostalAddress",

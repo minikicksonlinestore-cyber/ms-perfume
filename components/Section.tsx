@@ -11,7 +11,7 @@ export default function Section({ id, eyebrow, title, lead, alt, children }: Pro
           <p className="eyebrow">{eyebrow}</p>
           <h2 className="title">{title}</h2>
           <div className="divider mx-auto" />
-          {lead && <p className="mx-auto max-w-[620px] text-cream/60">{lead}</p>}
+          {lead && <p className={`mx-auto max-w-[620px] text-cream/60`}>{lead}</p>}
         </Reveal>
         {children}
       </div>

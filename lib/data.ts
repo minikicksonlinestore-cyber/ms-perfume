@@ -4,10 +4,10 @@ export const COMPANY = {
   country: "Sultanate of Oman",
   phone: "+968 94247885",
   phoneHref: "tel:+96894247885",
+  // Second line.
+  phone2: "+968 76434164",
+  phone2Href: "tel:+96876434164",
   email: "VIPOWER0989@OUTLOOK.COM",
-  whatsapp: "https://wa.me/96894247885",
-  whatsappMsg:
-    "https://wa.me/96894247885?text=Hello%20MS%20PERFUME%2C%20I%20would%20like%20to%20know%20more.",
   address: "Ruwi / Muttrah, Muscat Governorate, Sultanate of Oman",
   addressLine: "P.O. Box 112, P.C. 111",
   addressShort: "Ruwi / Muttrah, Muscat",
@@ -57,5 +57,5 @@ export const WHY = [
   { n: "01", icon: "gem", name: "Premium Ingredients", text: "Oud, amber, rose and musk, chosen for depth and character." },
   { n: "02", icon: "clock", name: "Made to Linger", text: "Rich compositions designed to stay with you from morning to night." },
   { n: "03", icon: "dome", name: "Omani Heritage", text: "Rooted in Gulf perfumery and shaped for modern taste." },
-  { n: "04", icon: "support", name: "Personal Service", text: "Speak to us by phone or WhatsApp and we will help you find your scent." },
+  { n: "04", icon: "support", name: "Personal Service", text: "Speak to us by phone and we will help you find your scent." },
 ];

@@ -1,9 +1,9 @@
 export type IconName =
   | "pin" | "phone" | "mail" | "chat" | "bottle" | "building"
   | "wood" | "flower" | "drop" | "citrus" | "attar" | "gift"
-  | "bakhoor" | "gem" | "clock" | "dome" | "support" | "whatsapp";
+  | "bakhoor" | "gem" | "clock" | "dome" | "support";
 
-const PATHS: Record<Exclude<IconName, "whatsapp">, React.ReactNode> = {
+const PATHS: Record<IconName, React.ReactNode> = {
   pin: <><path d="M12 21s-6.500-5.600-6.500-11a6.500 6.500 0 0 1 13 0c0 5.400-6.500 11-6.500 11z" /><circle cx="12" cy="10" r="2.300" /></>,
   phone: <path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />,
   mail: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></>,
@@ -24,13 +24,6 @@ const PATHS: Record<Exclude<IconName, "whatsapp">, React.ReactNode> = {
 };
 
 export default function Icon({ name, className = "h-6 w-6" }: { name: IconName; className?: string }) {
-  if (name === "whatsapp") {
-    return (
-      <svg viewBox="0 0 32 32" className={`${className} fill-current`} aria-hidden>
-        <path d="M16 3a13 13 0 0 0-11 19.800L3 29l6.400-1.700A13 13 0 1 0 16 3zm0 2.400a10.600 10.600 0 1 1-5.400 19.700l-.4-.2-3.800 1 1-3.700-.3-.4A10.600 10.600 0 0 1 16 5.400zm5 12.200c-.3-.1-1.700-.8-2-.9s-.5-.1-.7.1l-.9 1.100c-.2.200-.3.200-.6.100-.3-.1-1.200-.4-2.300-1.400-.9-.8-1.400-1.700-1.600-2-.2-.3 0-.4.100-.6l.4-.5.3-.5v-.5l-.9-2.200c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400-.3.300-1 1-1 2.500s1.100 2.900 1.200 3.100c.2.200 2.100 3.300 5.200 4.500 3.100 1.200 3.100.8 3.700.8.600-.1 1.800-.7 2.100-1.500.3-.7.300-1.300.2-1.500-.1-.1-.3-.2-.6-.3z" />
-      </svg>
-    );
-  }
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
       {PATHS[name]}

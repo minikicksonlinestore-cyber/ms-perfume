@@ -16,7 +16,7 @@ const grid = "mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-6 sm:[grid-template-c
 const STATS: { k: string; v: string; icon: IconName }[] = [
   { k: "Oman", v: "Home of the brand", icon: "pin" },
   { k: "Oud & Amber", v: "Signature notes", icon: "bottle" },
-  { k: "WhatsApp", v: "Ask us anything", icon: "chat" },
+  { k: "Call us", v: "We are here to help", icon: "phone" },
 ];
 
 const iconBtn = "grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[.04] transition hover:border-orange hover:text-orange-light";
@@ -65,7 +65,6 @@ export default function Home() {
 
           <div className="absolute inset-x-0 bottom-6 mx-auto flex max-w-[1240px] items-center justify-between px-5">
             <div className="flex gap-3">
-              <a href={COMPANY.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className={iconBtn}><Icon name="whatsapp" className="h-5 w-5" /></a>
               <a href={COMPANY.phoneHref} aria-label="Call" className={iconBtn}><Icon name="phone" className="h-5 w-5" /></a>
               <a href={`mailto:${COMPANY.email}`} aria-label="Email" className={iconBtn}><Icon name="mail" className="h-5 w-5" /></a>
             </div>
@@ -122,22 +121,21 @@ export default function Home() {
           <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-7 sm:[grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))]">
             {PERFUMES.map((p, i) => (
               <Reveal key={p.name} delay={(i % 3) * 120} className="card card-bare group !p-0">
-                {p.image ? (
-                  <div className="relative aspect-square w-full bg-[radial-gradient(closest-side_at_50%_58%,rgba(217,99,30,.30),transparent)]">
-                    <Image src={p.image} alt={`${p.brand} ${p.name} ${p.type}`} width={520} height={520} unoptimized className="absolute inset-x-[10%] bottom-[7%] top-[18%] h-[75%] w-[80%] object-contain object-bottom drop-shadow-[0_18px_22px_rgba(0,0,0,.65)] transition duration-700 group-hover:-translate-y-1.5 group-hover:scale-105" />
-                    <div className="absolute inset-x-[22%] bottom-[5%] h-3 rounded-[50%] bg-black/60 blur-md" />
-                    <span className="absolute left-2.5 top-2.5 rounded-full border border-white/10 bg-ink/75 px-2.5 py-1 text-[.52rem] uppercase tracking-[.16em] text-orange-light backdrop-blur sm:left-4 sm:top-4 sm:px-3 sm:text-[.62rem] sm:tracking-[.2em]">{p.brand}</span>
-                  </div>
-                ) : (
-                  <div className="relative grid aspect-square w-full place-items-center rounded-2xl bg-[radial-gradient(closest-side,rgba(217,99,30,.28),transparent)]">
-                    <Bottle tone={p.tone} label={p.label} className="h-[62%] w-auto drop-shadow-[0_10px_14px_rgba(0,0,0,.5)] transition duration-500 group-hover:-translate-y-2 group-hover:scale-110" />
-                    <span className="absolute left-2.5 top-2.5 rounded-full border border-white/10 bg-ink/75 px-2.5 py-1 text-[.52rem] uppercase tracking-[.16em] text-orange-light sm:left-4 sm:top-4 sm:px-3 sm:text-[.62rem] sm:tracking-[.2em]">{p.brand}</span>
-                  </div>
-                )}
-                <div className="px-3 pb-4 pt-2 sm:px-5 sm:pb-6 sm:pt-3">
-                  <h3 className="font-serif text-lg leading-tight sm:text-2xl">{p.name}</h3>
-                  <p className="mt-1 text-[.68rem] leading-snug tracking-wide text-orange-light/90 sm:mt-1.5 sm:text-[.8rem] sm:tracking-wider">{p.type}</p>
-                  <p className="mt-2 hidden text-[.82rem] leading-relaxed text-cream/60 sm:block">Ask us about sizes and availability.</p>
+                <div className="relative aspect-square w-full">
+                  <div aria-hidden className="absolute inset-x-[6%] bottom-[6%] top-[14%] bg-[radial-gradient(closest-side_at_50%_62%,rgba(217,99,30,.34),transparent)]" />
+                  {p.image ? (
+                    <Image src={p.image} alt={`${p.brand} ${p.name} ${p.type}`} width={520} height={520} unoptimized className="absolute inset-x-[7%] bottom-[9%] top-[10%] h-[81%] w-[86%] object-contain object-bottom drop-shadow-[0_18px_22px_rgba(0,0,0,.65)] transition duration-700 group-hover:-translate-y-2 group-hover:scale-[1.04]" />
+                  ) : (
+                    <Bottle tone={p.tone} label={p.label} className="absolute inset-x-[20%] bottom-[9%] top-[14%] h-[77%] w-[60%] drop-shadow-[0_10px_14px_rgba(0,0,0,.5)] transition duration-700 group-hover:-translate-y-2 group-hover:scale-105" />
+                  )}
+                  <div aria-hidden className="absolute inset-x-[18%] bottom-[5%] h-4 rounded-[50%] bg-black/70 blur-md" />
+                  <div aria-hidden className="absolute inset-x-[26%] bottom-[7%] h-px bg-gradient-to-r from-transparent via-orange-light/70 to-transparent" />
+                </div>
+                <div className="px-3 pb-3 pt-3 sm:px-5 sm:pb-6 sm:pt-5">
+                  <p className="text-[.64rem] uppercase tracking-[.26em] text-orange-light sm:text-[.7rem] sm:tracking-[.36em]">{p.brand}</p>
+                  <h3 className="mt-1.5 font-serif text-xl leading-tight sm:mt-2 sm:text-[1.75rem]">{p.name}</h3>
+                  <div aria-hidden className="mx-auto my-2.5 h-px w-8 bg-orange/50 sm:my-3.5 sm:w-12" />
+                  <p className="text-[.76rem] leading-snug tracking-wide text-cream/75 sm:text-[.84rem] sm:tracking-wider">{p.type}</p>
                 </div>
               </Reveal>
             ))}
@@ -147,7 +145,8 @@ export default function Home() {
         <Section id="categories" eyebrow="Categories" title={<>Find Your <span className="gold">Scent Family</span></>} lead="Every fragrance belongs to a family. Start with the mood you love, and we will help you from there.">
           <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-7 lg:grid-cols-3">
             {CATEGORIES.map((c, i) => (
-              <Reveal key={c.name} delay={(i % 3) * 100} className="card !px-3 !py-7 sm:!px-8 sm:!py-14">
+              <Reveal key={c.name} delay={(i % 3) * 100} className="card group !px-3 !py-7 sm:!px-8 sm:!py-14">
+                <Icon name={c.icon as IconName} className="pointer-events-none absolute -bottom-6 -right-5 -z-10 hidden h-36 w-36 text-orange opacity-[.07] transition duration-500 group-hover:opacity-[.14] sm:block" />
                 <IconBadge name={c.icon as IconName} className="!mb-3 sm:!mb-5 sm:!h-20 sm:!w-20" big />
                 <h3 className="font-serif text-lg leading-tight sm:text-[1.9rem]">{c.name}</h3>
                 <p className="mt-1.5 text-[.72rem] leading-snug text-cream/60 sm:mt-2.5 sm:text-[.9rem] sm:leading-relaxed sm:text-cream/65">{c.text}</p>
@@ -157,12 +156,12 @@ export default function Home() {
         </Section>
 
         <Section id="why" alt eyebrow="Why Choose Us" title={<>The <span className="gold">MS</span> Difference</>} lead="A small house with a clear idea: fewer, better fragrances, and a real person to talk to.">
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-6 sm:[grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))]">
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-6 lg:grid-cols-4">
             {WHY.map((w, i) => (
-              <Reveal key={w.name} delay={i * 100} className="card !p-4 sm:!p-6">
-                <IconBadge name={w.icon as IconName} />
-                <h3 className="font-serif text-lg leading-tight sm:text-2xl">{w.name}</h3>
-                <p className="mt-1 text-[.68rem] leading-snug tracking-wide text-cream/55 sm:mt-1.5 sm:text-[.78rem] sm:tracking-wider">{w.text}</p>
+              <Reveal key={w.name} delay={i * 100} className="card !px-4 !py-7 sm:!px-6 sm:!py-10">
+                <IconBadge name={w.icon as IconName} className="sm:!mb-5 sm:!h-16 sm:!w-16" />
+                <h3 className="font-serif text-xl leading-tight sm:text-[1.7rem]">{w.name}</h3>
+                <p className="mt-2 text-[.78rem] leading-snug text-cream/65 sm:mt-3 sm:text-[.92rem] sm:leading-relaxed">{w.text}</p>
               </Reveal>
             ))}
           </div>
@@ -198,7 +197,7 @@ export default function Home() {
               <p className="mt-6 text-sm text-cream/60">{COMPANY.address}<br />{COMPANY.addressLine}</p>
               <div className="mt-6 flex flex-wrap justify-center gap-3 lg:justify-start">
                 <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY.mapQuery)}`} target="_blank" rel="noopener noreferrer" className="btn btn-fill">Get Directions <span aria-hidden>↗</span></a>
-                <a href={COMPANY.whatsappMsg} target="_blank" rel="noopener noreferrer" className="btn">WhatsApp Us</a>
+                <a href={COMPANY.phoneHref} className="btn">Call Us</a>
               </div>
             </Reveal>
           </div>
@@ -229,11 +228,18 @@ export default function Home() {
           </div>
         </section>
 
-        <Section id="contact" eyebrow="Contact Us" title={<>Let&apos;s <span className="gold">Talk Fragrance</span></>} lead="Questions about our fragrances, availability or gifting? Call, message us on WhatsApp or send an email. We are happy to help you choose.">
+        <Section id="contact" eyebrow="Contact Us" title={<>Let&apos;s <span className="gold">Talk Fragrance</span></>} lead="Questions about our fragrances, availability or gifting? Call or send us an email. We are happy to help you choose.">
           <div className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-10 text-left md:grid-cols-[1fr_1.2fr]">
             <Reveal className="grid content-start gap-4">
+              <div className="panel flex items-center gap-4 p-5">
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-orange/30 bg-orange/10 text-orange-light"><Icon name="phone" className="h-5 w-5" /></span>
+                <span className="min-w-0 text-[.88rem] sm:text-base">
+                  <b className="block text-[.7rem] font-normal uppercase tracking-[.25em] text-orange">Phone</b>
+                  <a href={COMPANY.phoneHref} className="block transition hover:text-orange-light">{COMPANY.phone}</a>
+                  <a href={COMPANY.phone2Href} className="block transition hover:text-orange-light">{COMPANY.phone2}</a>
+                </span>
+              </div>
               {[
-                { l: "Phone", v: COMPANY.phone, h: COMPANY.phoneHref, i: "phone" as IconName },
                 { l: "Email", v: COMPANY.email, h: `mailto:${COMPANY.email}`, i: "mail" as IconName },
               ].map((i) => (
                 <a key={i.l} href={i.h} className="panel flex items-center gap-4 p-5 transition hover:border-orange/60">
@@ -241,10 +247,6 @@ export default function Home() {
                   <span className="min-w-0 text-[.88rem] [overflow-wrap:anywhere] sm:text-base"><b className="block text-[.7rem] font-normal uppercase tracking-[.25em] text-orange">{i.l}</b>{i.v}</span>
                 </a>
               ))}
-              <a href={COMPANY.whatsappMsg} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 rounded-2xl border border-[#25d366]/70 bg-[#25d366]/10 p-5 transition hover:bg-[#25d366]/20">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#25d366]/20 text-[#4be08a]"><Icon name="whatsapp" className="h-6 w-6" /></span>
-                <span><b className="block text-[.7rem] font-normal uppercase tracking-[.25em] text-[#4be08a]">WhatsApp</b>Chat with us now</span>
-              </a>
               <div className="panel flex items-start gap-4 p-5">
                 <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-orange/30 bg-orange/10 text-orange-light"><Icon name="building" className="h-5 w-5" /></span>
                 <span className="min-w-0"><b className="block text-[.7rem] font-normal uppercase tracking-[.25em] text-orange">Head Quarter</b>
@@ -261,10 +263,10 @@ export default function Home() {
             <p className="eyebrow">MS PERFUME</p>
             <h2 className="title text-[clamp(2.4rem,6vw,4.4rem)]">Find Your <span className="gold">Signature Scent</span></h2>
             <div className="divider mx-auto" />
-            <p className="mx-auto max-w-[520px] text-cream/70">Tell us what you love and we will guide you. Call or message us on WhatsApp.</p>
+            <p className="mx-auto max-w-[520px] text-cream/70">Tell us what you love and we will guide you. Call us or send an email.</p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <a href={COMPANY.whatsappMsg} target="_blank" rel="noopener noreferrer" className="btn btn-fill px-8"><Icon name="whatsapp" className="h-5 w-5" />Chat on WhatsApp</a>
-              <a href={COMPANY.phoneHref} className="btn px-8"><Icon name="phone" className="h-5 w-5" />{COMPANY.phone}</a>
+              <a href={COMPANY.phoneHref} className="btn btn-fill px-8"><Icon name="phone" className="h-5 w-5" />Call {COMPANY.phone}</a>
+              <a href={`mailto:${COMPANY.email}`} className="btn px-8"><Icon name="mail" className="h-5 w-5" />Email Us</a>
             </div>
           </Reveal>
         </section>
@@ -274,25 +276,25 @@ export default function Home() {
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(217,99,30,.22),transparent_60%)]" />
         <div aria-hidden className="bg-lattice pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]" />
         <div className="relative mx-auto max-w-[1240px]">
-          <div className="grid gap-10 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-[1.4fr_1fr] lg:gap-20">
+          <div className="grid gap-10 text-center">
             <div>
-              <div className="flex items-center justify-center gap-3 font-serif text-2xl tracking-wide text-cream sm:justify-start">
+              <div className="flex items-center justify-center gap-3 font-serif text-2xl tracking-wide text-cream">
                 <Image src="/logo-sm.webp" alt="" width={79} height={64} unoptimized className="h-auto w-[64px] drop-shadow-[0_6px_18px_rgba(217,99,30,.45)] sm:w-[56px]" /><span>MS PERFUME<span className="text-orange">.</span></span>
               </div>
               <p className="mt-3 font-serif text-xl italic text-champagne/90">The art of Arabian scent.</p>
-              <div className="divider mx-auto mt-5 sm:mx-0" />
-              <p className="mx-auto mt-4 max-w-[340px] text-[.85rem] leading-relaxed text-cream/60 sm:mx-0 sm:max-w-none">Oud, amber, musk and rose, from {COMPANY.legalName}, Muscat, Oman.</p>
+              <div className="divider mx-auto mt-5" />
+              <p className="mx-auto mt-4 max-w-[420px] text-[.85rem] leading-relaxed text-cream/60">Oud, amber, musk and rose, from {COMPANY.legalName}, Muscat, Oman.</p>
             </div>
 
             <div className="sm:hidden">
               <ul className="grid grid-cols-2 gap-3 text-left">
                 {([
                   ["phone", "Call", COMPANY.phone, COMPANY.phoneHref],
-                  ["whatsapp", "WhatsApp", "Chat with us", COMPANY.whatsappMsg],
+                  ["phone", "Call", COMPANY.phone2, COMPANY.phone2Href],
                   ["mail", "Email", "Write to us", `mailto:${COMPANY.email}`],
                   ["pin", "Directions", "Ruwi / Muttrah", `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY.mapQuery)}`],
                 ] as [IconName, string, string, string][]).map(([ic, l, v, h]) => (
-                  <li key={l}>
+                  <li key={h}>
                     <a href={h} {...(h.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="block rounded-2xl border border-orange/25 bg-[linear-gradient(160deg,rgba(240,160,75,.14),rgba(0,0,0,.25))] p-4 shadow-[0_14px_30px_-12px_rgba(0,0,0,.8)] transition active:scale-[.98]">
                       <span className="mb-3 grid h-10 w-10 place-items-center rounded-full border border-orange/30 bg-orange/10 text-orange-light"><Icon name={ic} className="h-5 w-5" /></span>
                       <b className="block font-serif text-lg font-medium leading-tight">{l}</b>
@@ -301,18 +303,32 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <p className="mx-auto mt-4 max-w-[300px] text-[.78rem] leading-relaxed text-cream/55">{COMPANY.address}<br />{COMPANY.addressLine}</p>
+              <p className="mx-auto mt-3 max-w-[300px] text-[.78rem] leading-relaxed text-cream/55">{COMPANY.address}<br />{COMPANY.addressLine}</p>
               <p className="mt-2 text-[.74rem] text-cream/45 [overflow-wrap:anywhere]">{COMPANY.email}</p>
             </div>
 
-            <div className="hidden sm:block">
-              <p className="eyebrow">Contact</p>
-              <ul className="mt-4 space-y-3 text-sm text-cream/70">
-                <li className="flex items-center gap-3"><Icon name="phone" className="h-4 w-4 shrink-0 text-orange" /><a href={COMPANY.phoneHref} className="transition hover:text-orange-light">{COMPANY.phone}</a></li>
-                <li className="flex items-center gap-3"><Icon name="mail" className="h-4 w-4 shrink-0 text-orange" /><a href={`mailto:${COMPANY.email}`} className="[overflow-wrap:anywhere] transition hover:text-orange-light">{COMPANY.email}</a></li>
-                <li className="flex items-start gap-3"><Icon name="pin" className="mt-0.5 h-4 w-4 shrink-0 text-orange" /><span>{COMPANY.address}<br />{COMPANY.addressLine}</span></li>
-              </ul>
-            </div>
+            <ul className="mx-auto hidden w-full max-w-[1000px] gap-8 text-left sm:grid sm:grid-cols-3">
+              <li>
+                <div className="flex items-start gap-4">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-orange/30 bg-orange/10 text-orange-light"><Icon name="phone" className="h-5 w-5" /></span>
+                  <span className="min-w-0 text-sm text-cream/75"><b className="mb-0.5 block text-[.66rem] font-normal uppercase tracking-[.26em] text-orange">Phone</b>
+                    <a href={COMPANY.phoneHref} className="block transition hover:text-orange-light">{COMPANY.phone}</a>
+                    <a href={COMPANY.phone2Href} className="block transition hover:text-orange-light">{COMPANY.phone2}</a>
+                  </span>
+                </div>
+              </li>
+              {([
+                ["mail", "Email", COMPANY.email, `mailto:${COMPANY.email}`],
+                ["pin", "Head Quarter", `${COMPANY.address}, ${COMPANY.addressLine}`, `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY.mapQuery)}`],
+              ] as [IconName, string, string, string][]).map(([ic, l, v, h]) => (
+                <li key={l}>
+                  <a href={h} {...(h.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="group flex items-start gap-4">
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-orange/30 bg-orange/10 text-orange-light transition group-hover:bg-orange group-hover:text-white"><Icon name={ic} className="h-5 w-5" /></span>
+                    <span className="min-w-0 text-sm text-cream/75 [overflow-wrap:anywhere]"><b className="mb-0.5 block text-[.66rem] font-normal uppercase tracking-[.26em] text-orange">{l}</b>{v}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="mt-12 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-center text-[.74rem] leading-relaxed text-cream/45">
@@ -322,8 +338,6 @@ export default function Home() {
         </div>
       </footer>
 
-      <a href={COMPANY.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="fixed bottom-[18px] right-[18px] z-[45] grid h-14 w-14 place-items-center rounded-full bg-[#25d366] shadow-[0_8px_24px_rgba(0,0,0,.5)] transition hover:scale-110"><Icon name="whatsapp" className="h-[30px] w-[30px] text-white" />
-      </a>
     </>
   );
 }

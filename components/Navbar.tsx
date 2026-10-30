@@ -80,7 +80,6 @@ export default function Navbar() {
             <Icon name="phone" className="h-4 w-4" />
             {COMPANY.phone}
           </a>
-          <a href={COMPANY.whatsappMsg} target="_blank" rel="noopener noreferrer" className="hidden rounded-full border border-white/20 px-5 py-2 text-sm transition hover:border-orange hover:text-orange-light sm:block">WhatsApp</a>
           <button aria-label="Menu" aria-expanded={open} aria-controls="site-menu" onClick={() => setOpen(!open)} className="relative z-[60] grid h-11 w-11 place-items-center rounded-full border border-orange/50 lg:hidden">
             <span className="relative block h-3 w-5">
               <i className={`absolute left-0 h-[1.5px] w-full bg-cream transition-all ${open ? "top-1/2 rotate-45" : "top-0"}`} />
