@@ -16,7 +16,7 @@ const grid = "mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-6 sm:[grid-template-c
 const STATS: { k: string; v: string; icon: IconName }[] = [
   { k: "Oman", v: "Home of the brand", icon: "pin" },
   { k: "Oud & Amber", v: "Signature notes", icon: "bottle" },
-  { k: "Call us", v: "We are here to help", icon: "phone" },
+  { k: "Gift Sets", v: "In luxury boxes", icon: "gift" },
 ];
 
 const iconBtn = "grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[.04] transition hover:border-orange hover:text-orange-light";
@@ -29,41 +29,44 @@ export default function Home() {
       <Navbar />
       <BackToTop />
       <main>
-        <section id="home" className="relative flex min-h-screen items-end overflow-hidden bg-ink pb-24 pt-[340px] lg:items-center lg:pt-28">
-          <div className="absolute inset-x-0 top-0 h-[470px] lg:inset-y-0 lg:left-auto lg:right-0 lg:h-auto lg:w-[66%]">
+        <section id="home" className="relative flex items-end overflow-hidden bg-ink pb-14 pt-[430px] sm:pb-24 sm:pt-[340px] lg:min-h-screen lg:items-center lg:pt-28">
+          <div className="absolute inset-x-0 top-0 h-[540px] sm:h-[470px] lg:inset-y-0 lg:left-auto lg:right-0 lg:h-auto lg:w-[66%]">
             <Image src="/hero.webp" alt="MS PERFUME Eau de Parfum bottle on aged oud wood with amber leaves" fill preload fetchPriority="high" sizes="(min-width: 1024px) 66vw, 100vw" className="object-cover object-[62%_38%] lg:object-center" />
-            <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-transparent to-ink lg:bg-gradient-to-r lg:from-ink lg:via-ink/50 lg:to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-ink/25 via-transparent via-45% to-ink lg:bg-gradient-to-r lg:from-ink lg:via-ink/50 lg:to-transparent" />
             <div className="absolute inset-x-0 bottom-0 hidden h-40 bg-gradient-to-t from-ink to-transparent lg:block" />
           </div>
           <Sparkles />
           <div className="relative mx-auto w-full max-w-[1240px] px-5">
             <div className="max-w-[600px] text-center lg:text-left">
-              <span className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-ink/60 px-5 py-2.5 text-[.72rem] uppercase tracking-[.22em] text-cream/80 backdrop-blur">
+              <span className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-orange/40 bg-ink/70 px-4 py-2 text-[.62rem] uppercase tracking-[.2em] text-champagne backdrop-blur sm:mb-6 sm:px-5 sm:py-2.5 sm:text-[.72rem] sm:tracking-[.22em]">
                 <i className="h-2 w-2 rounded-full bg-orange-hot" />Muscat — Sultanate of Oman
               </span>
-              <h1 className="font-serif text-[clamp(2.8rem,7vw,5.4rem)] font-medium leading-[1.02] drop-shadow-[0_4px_24px_rgba(0,0,0,.6)]">
+              <h1 className="font-serif text-[clamp(3.3rem,7vw,5.4rem)] font-medium leading-[1] drop-shadow-[0_4px_24px_rgba(0,0,0,.6)]">
                 A Scent That <br />Leaves a <span className="gold">Mark.</span>
               </h1>
-              <p className="mx-auto mt-6 max-w-[460px] text-[1.02rem] text-cream/75 lg:mx-0">
+              <p className="mx-auto mt-5 max-w-[460px] text-[.98rem] leading-relaxed text-cream/75 sm:mt-6 sm:text-[1.02rem] lg:mx-0">
                 Rich oud, glowing amber, soft musk and rose, inspired by Oman&apos;s centuries-old tradition of perfumery. Made for those who prefer to be remembered.
               </p>
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-6 lg:justify-start">
-                <a href="#perfumes" className="btn btn-fill px-8">Explore Perfumes <span aria-hidden>↗</span></a>
-                <a href="#about" className="inline-flex items-center gap-3 text-sm text-cream transition hover:text-orange-light">Discover the Story <span className="text-orange" aria-hidden>⟶</span></a>
+              <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6 lg:justify-start">
+                <a href="#perfumes" className="btn btn-fill w-full justify-center py-4 sm:w-auto sm:py-3.5 sm:px-8">Explore Perfumes <span aria-hidden>↗</span></a>
+                <div className="grid grid-cols-2 gap-3 sm:contents">
+                  <a href="#about" className="btn justify-center !px-3 sm:!border-0 sm:!p-0 sm:hover:!bg-transparent">Our Story <span className="text-orange" aria-hidden>⟶</span></a>
+                  <a href={COMPANY.phoneHref} className="btn justify-center !px-3 sm:hidden"><Icon name="phone" className="h-4 w-4" />Call Us</a>
+                </div>
               </div>
-              <dl className="mx-auto mt-10 grid max-w-[520px] grid-cols-3 divide-x divide-white/10 rounded-2xl border border-white/10 bg-ink/70 p-3 text-left backdrop-blur sm:p-4 lg:mx-0">
+              <dl className="mx-auto mt-8 grid max-w-[520px] grid-cols-3 gap-2 text-center sm:mt-10 sm:gap-0 sm:divide-x sm:divide-white/10 sm:rounded-2xl sm:border sm:border-white/10 sm:bg-ink/70 sm:p-4 sm:text-left sm:backdrop-blur lg:mx-0">
                 {STATS.map((s) => (
-                  <div key={s.k} className="px-2 first:pl-0 sm:px-3 sm:first:pl-1">
-                    <Icon name={s.icon} className="mb-2 h-5 w-5 text-orange" />
+                  <div key={s.k} className="flex flex-col items-center gap-1.5 rounded-2xl border border-white/10 bg-white/[.03] px-1 py-3 sm:block sm:rounded-none sm:border-0 sm:bg-transparent sm:px-3 sm:py-0 sm:first:pl-1">
+                    <Icon name={s.icon} className="h-5 w-5 text-orange sm:mb-2" />
                     <dt className="whitespace-nowrap text-[.8rem] font-normal leading-tight sm:text-[.95rem]">{s.k}</dt>
-                    <dd className="mt-1 text-[.7rem] leading-snug text-cream/55">{s.v}</dd>
+                    <dd className="hidden text-[.7rem] leading-snug text-cream/55 sm:mt-1 sm:block">{s.v}</dd>
                   </div>
                 ))}
               </dl>
             </div>
           </div>
 
-          <div className="absolute inset-x-0 bottom-6 mx-auto flex max-w-[1240px] items-center justify-between px-5">
+          <div className="absolute inset-x-0 bottom-6 mx-auto hidden max-w-[1240px] items-center justify-between px-5 sm:flex">
             <div className="flex gap-3">
               <a href={COMPANY.phoneHref} aria-label="Call" className={iconBtn}><Icon name="phone" className="h-5 w-5" /></a>
               <a href={`mailto:${COMPANY.email}`} aria-label="Email" className={iconBtn}><Icon name="mail" className="h-5 w-5" /></a>
