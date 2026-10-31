@@ -6,9 +6,24 @@ import { COMPANY } from "@/lib/data";
 const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-cormorant", display: "swap" });
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["300", "400"], variable: "--font-montserrat", display: "swap" });
 
+const title = "MS PERFUME | Luxury Fragrances, Muscat Oman";
+const description = "MS PERFUME, the art of Arabian scent. Oud, amber, musk and rose fragrances by North Muscat Nights for Business LLC, Muscat, Oman.";
+
 export const metadata: Metadata = {
-  title: "MS PERFUME | Luxury Fragrances, Muscat Oman",
-  description: "MS PERFUME, the art of Arabian scent. Oud, amber, musk and rose fragrances by North Muscat Nights for Business LLC, Muscat, Oman.",
+  metadataBase: new URL(COMPANY.siteUrl),
+  title,
+  description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: COMPANY.brand,
+    title,
+    description,
+    locale: "en_OM",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "MS PERFUME, the art of Arabian scent" }],
+  },
+  twitter: { card: "summary_large_image", title, description, images: ["/og.jpg"] },
 };
 export const viewport: Viewport = { themeColor: "#0b0604", width: "device-width", initialScale: 1 };
 
@@ -16,9 +31,11 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Store",
   name: COMPANY.brand,
+  url: COMPANY.siteUrl,
+  image: `${COMPANY.siteUrl}/og.jpg`,
   legalName: COMPANY.legalName,
   description: "Oud, amber, musk and rose fragrances from Muscat, Oman.",
-  telephone: ["+96894247885", "+96876434164"],
+  telephone: "+96876434164",
   email: COMPANY.email,
   address: {
     "@type": "PostalAddress",

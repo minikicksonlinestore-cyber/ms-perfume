@@ -30,31 +30,32 @@ export default function Home() {
       <BackToTop />
       <main>
         <section id="home" className="relative flex items-end overflow-hidden bg-ink pb-14 pt-[430px] sm:pb-24 sm:pt-[340px] lg:min-h-screen lg:items-center lg:pt-28">
-          <div className="absolute inset-x-0 top-0 h-[540px] sm:h-[470px] lg:inset-y-0 lg:left-auto lg:right-0 lg:h-auto lg:w-[66%]">
-            <Image src="/hero.webp" alt="MS PERFUME Eau de Parfum bottle on aged oud wood with amber leaves" fill preload fetchPriority="high" sizes="(min-width: 1024px) 66vw, 100vw" className="object-cover object-[62%_38%] lg:object-center" />
+          <div className="absolute inset-x-0 top-0 h-[540px] overflow-hidden sm:h-[470px] lg:inset-y-0 lg:left-auto lg:right-0 lg:h-auto lg:w-[66%]">
+            <Image src="/hero.webp" alt="MS PERFUME Eau de Parfum bottle on aged oud wood with amber leaves" fill preload fetchPriority="high" sizes="(min-width: 1024px) 66vw, 100vw" className="kenburns object-cover object-[62%_38%] lg:object-center" />
             <div className="absolute inset-0 bg-gradient-to-b from-ink/25 via-transparent via-45% to-ink lg:bg-gradient-to-r lg:from-ink lg:via-ink/50 lg:to-transparent" />
             <div className="absolute inset-x-0 bottom-0 hidden h-40 bg-gradient-to-t from-ink to-transparent lg:block" />
           </div>
           <Sparkles />
           <div className="relative mx-auto w-full max-w-[1240px] px-5">
             <div className="max-w-[600px] text-center lg:text-left">
-              <span className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-orange/40 bg-ink/70 px-4 py-2 text-[.62rem] uppercase tracking-[.2em] text-champagne backdrop-blur sm:mb-6 sm:px-5 sm:py-2.5 sm:text-[.72rem] sm:tracking-[.22em]">
+              <span style={{ "--d": "150ms" } as React.CSSProperties} className="hero-in mb-5 inline-flex items-center gap-2.5 rounded-full border border-orange/40 bg-ink/70 px-4 py-2 text-[.62rem] uppercase tracking-[.2em] text-champagne backdrop-blur sm:mb-6 sm:px-5 sm:py-2.5 sm:text-[.72rem] sm:tracking-[.22em]">
                 <i className="h-2 w-2 rounded-full bg-orange-hot" />Muscat — Sultanate of Oman
               </span>
               <h1 className="font-serif text-[clamp(3.3rem,7vw,5.4rem)] font-medium leading-[1] drop-shadow-[0_4px_24px_rgba(0,0,0,.6)]">
-                A Scent That <br />Leaves a <span className="gold">Mark.</span>
+                <span style={{ "--d": "300ms" } as React.CSSProperties} className="hero-in block">A Scent That</span>
+                <span style={{ "--d": "460ms" } as React.CSSProperties} className="hero-in block">Leaves a <span className="gold shimmer">Mark.</span></span>
               </h1>
-              <p className="mx-auto mt-5 max-w-[460px] text-[.98rem] leading-relaxed text-cream/75 sm:mt-6 sm:text-[1.02rem] lg:mx-0">
+              <p style={{ "--d": "640ms" } as React.CSSProperties} className="hero-in mx-auto mt-5 max-w-[460px] text-[.98rem] leading-relaxed text-cream/75 sm:mt-6 sm:text-[1.02rem] lg:mx-0">
                 Rich oud, glowing amber, soft musk and rose, inspired by Oman&apos;s centuries-old tradition of perfumery. Made for those who prefer to be remembered.
               </p>
-              <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6 lg:justify-start">
-                <a href="#perfumes" className="btn btn-fill w-full justify-center py-4 sm:w-auto sm:py-3.5 sm:px-8">Explore Perfumes <span aria-hidden>↗</span></a>
+              <div style={{ "--d": "800ms" } as React.CSSProperties} className="hero-in mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6 lg:justify-start">
+                <a href="#perfumes" className="btn btn-fill pulse-ring w-full justify-center py-4 sm:w-auto sm:py-3.5 sm:px-8">Explore Perfumes <span aria-hidden>↗</span></a>
                 <div className="grid grid-cols-2 gap-3 sm:contents">
                   <a href="#about" className="btn justify-center !px-3 sm:!border-0 sm:!p-0 sm:hover:!bg-transparent">Our Story <span className="text-orange" aria-hidden>⟶</span></a>
                   <a href={COMPANY.phoneHref} className="btn justify-center !px-3 sm:hidden"><Icon name="phone" className="h-4 w-4" />Call Us</a>
                 </div>
               </div>
-              <dl className="mx-auto mt-8 grid max-w-[520px] grid-cols-3 gap-2 text-center sm:mt-10 sm:gap-0 sm:divide-x sm:divide-white/10 sm:rounded-2xl sm:border sm:border-white/10 sm:bg-ink/70 sm:p-4 sm:text-left sm:backdrop-blur lg:mx-0">
+              <dl style={{ "--d": "960ms" } as React.CSSProperties} className="hero-in mx-auto mt-8 grid max-w-[520px] grid-cols-3 gap-2 text-center sm:mt-10 sm:gap-0 sm:divide-x sm:divide-white/10 sm:rounded-2xl sm:border sm:border-white/10 sm:bg-ink/70 sm:p-4 sm:text-left sm:backdrop-blur lg:mx-0">
                 {STATS.map((s) => (
                   <div key={s.k} className="flex flex-col items-center gap-1.5 rounded-2xl border border-white/10 bg-white/[.03] px-1 py-3 sm:block sm:rounded-none sm:border-0 sm:bg-transparent sm:px-3 sm:py-0 sm:first:pl-1">
                     <Icon name={s.icon} className="h-5 w-5 text-orange sm:mb-2" />
@@ -97,7 +98,7 @@ export default function Home() {
         <section id="about" className="relative overflow-hidden bg-[radial-gradient(ellipse_at_85%_30%,rgba(217,99,30,.16),transparent_55%)] py-16 md:py-28">
           <span aria-hidden className="pointer-events-none absolute -right-6 top-6 select-none font-serif text-[16rem] leading-none text-transparent [-webkit-text-stroke:1px_rgba(240,160,75,.07)] md:text-[26rem]">MS</span>
           <div className="relative mx-auto grid max-w-[1240px] grid-cols-[minmax(0,1fr)] items-center gap-12 px-5 lg:grid-cols-[1.1fr_.9fr] lg:gap-20">
-            <Reveal>
+            <Reveal from="left">
               <p className="eyebrow flex items-center gap-4"><span className="h-px w-10 bg-orange" />About Us</p>
               <h2 className="title text-[clamp(2.4rem,5.5vw,4.2rem)]">A House Rooted in <span className="gold">Omani Elegance</span></h2>
               <p className="mt-6 text-[1.08rem] leading-relaxed text-cream/80">MS PERFUME is a fragrance brand owned and operated by {COMPANY.legalName}, based in Muscat, Sultanate of Oman.</p>
@@ -107,7 +108,7 @@ export default function Home() {
               </blockquote>
             </Reveal>
 
-            <Reveal>
+            <Reveal from="right">
               <ul className="grid gap-4">
                 {([["dome", "Heritage", "Rooted in Gulf perfumery, shaped for modern taste."], ["gem", "Craft", "Oud, amber, musk and rose, chosen for depth and character."], ["drop", "Presence", "Made to be remembered, from the first spray to the last note."]] as [IconName, string, string][]).map(([ic, t, d]) => (
                   <li key={t} className="panel flex items-center gap-5 p-5 transition duration-500 hover:-translate-y-1 hover:border-orange/50 sm:p-7">
@@ -125,7 +126,7 @@ export default function Home() {
             {PERFUMES.map((p, i) => (
               <Reveal key={p.name} delay={(i % 3) * 120} className="card card-bare group !p-0">
                 <div className="relative aspect-square w-full">
-                  <div aria-hidden className="absolute inset-x-[6%] bottom-[6%] top-[14%] bg-[radial-gradient(closest-side_at_50%_62%,rgba(217,99,30,.34),transparent)]" />
+                  <div aria-hidden style={{ "--d": `${(i % 6) * -0.9}s` } as React.CSSProperties} className="glow-pulse absolute inset-x-[6%] bottom-[6%] top-[14%] bg-[radial-gradient(closest-side_at_50%_62%,rgba(217,99,30,.34),transparent)]" />
                   {p.image ? (
                     <Image src={p.image} alt={`${p.brand} ${p.name} ${p.type}`} width={520} height={520} unoptimized className="absolute inset-x-[7%] bottom-[9%] top-[10%] h-[81%] w-[86%] object-contain object-bottom drop-shadow-[0_18px_22px_rgba(0,0,0,.65)] transition duration-700 group-hover:-translate-y-2 group-hover:scale-[1.04]" />
                   ) : (
@@ -172,7 +173,7 @@ export default function Home() {
 
         <section id="store" className="py-14 md:py-24">
           <div className="mx-auto grid max-w-[1240px] grid-cols-[minmax(0,1fr)] items-center gap-10 px-5 lg:grid-cols-[1.25fr_1fr] lg:gap-14">
-            <Reveal>
+            <Reveal from="left">
               <figure className="relative">
                 <div className="overflow-hidden rounded-[1.6rem] border border-orange/25 shadow-[0_30px_80px_rgba(0,0,0,.55)] sm:rounded-[2rem]">
                   <Image src="/store.webp" alt="MS PERFUME storefront with lit shelves of perfumes, oud and gifts" width={1400} height={1050} sizes="(min-width: 1024px) 55vw, 100vw" className="h-auto w-full" />
@@ -183,7 +184,7 @@ export default function Home() {
                 </figcaption>
               </figure>
             </Reveal>
-            <Reveal className="pt-4 text-center lg:pt-0 lg:text-left">
+            <Reveal from="right" className="pt-4 text-center lg:pt-0 lg:text-left">
               <p className="eyebrow">Visit Our Store</p>
               <h2 className="title">Step Inside <span className="gold whitespace-nowrap">MS PERFUME</span></h2>
               <div className="divider mx-auto lg:mx-0" />
@@ -209,7 +210,7 @@ export default function Home() {
         <section id="registration" className="relative bg-ink-2 py-14 md:py-24">
           <div aria-hidden className="bg-lattice pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]" />
           <div className="relative mx-auto max-w-[1240px] px-5 text-center">
-            <Reveal>
+            <Reveal from="left">
               <p className="eyebrow">Legal Details</p>
               <h2 className="title">Company <span className="gold">Registration</span></h2>
               <div className="divider mx-auto" />
@@ -239,7 +240,6 @@ export default function Home() {
                 <span className="min-w-0 text-[.88rem] sm:text-base">
                   <b className="block text-[.7rem] font-normal uppercase tracking-[.25em] text-orange">Phone</b>
                   <a href={COMPANY.phoneHref} className="block transition hover:text-orange-light">{COMPANY.phone}</a>
-                  <a href={COMPANY.phone2Href} className="block transition hover:text-orange-light">{COMPANY.phone2}</a>
                 </span>
               </div>
               {[
@@ -256,7 +256,7 @@ export default function Home() {
                 {COMPANY.legalName}<br />{COMPANY.address}<br />{COMPANY.addressLine}</span>
               </div>
             </Reveal>
-            <Reveal><MapCard /></Reveal>
+            <Reveal from="right"><MapCard /></Reveal>
           </div>
         </Section>
       <section className="relative overflow-hidden py-20 md:py-28">
@@ -264,7 +264,7 @@ export default function Home() {
           <div aria-hidden className="bg-lattice pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
           <Reveal className="relative mx-auto max-w-[760px] px-5 text-center">
             <p className="eyebrow">MS PERFUME</p>
-            <h2 className="title text-[clamp(2.4rem,6vw,4.4rem)]">Find Your <span className="gold">Signature Scent</span></h2>
+            <h2 className="title text-[clamp(2.4rem,6vw,4.4rem)]">Find Your <span className="gold shimmer">Signature Scent</span></h2>
             <div className="divider mx-auto" />
             <p className="mx-auto max-w-[520px] text-cream/70">Tell us what you love and we will guide you. Call us or send an email.</p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -293,11 +293,10 @@ export default function Home() {
               <ul className="grid grid-cols-2 gap-3 text-left">
                 {([
                   ["phone", "Call", COMPANY.phone, COMPANY.phoneHref],
-                  ["phone", "Call", COMPANY.phone2, COMPANY.phone2Href],
                   ["mail", "Email", "Write to us", `mailto:${COMPANY.email}`],
                   ["pin", "Directions", "Ruwi / Muttrah", `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY.mapQuery)}`],
-                ] as [IconName, string, string, string][]).map(([ic, l, v, h]) => (
-                  <li key={h}>
+                ] as [IconName, string, string, string][]).map(([ic, l, v, h], idx) => (
+                  <li key={h} className={idx === 0 ? "col-span-2" : ""}>
                     <a href={h} {...(h.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="block rounded-2xl border border-orange/25 bg-[linear-gradient(160deg,rgba(240,160,75,.14),rgba(0,0,0,.25))] p-4 shadow-[0_14px_30px_-12px_rgba(0,0,0,.8)] transition active:scale-[.98]">
                       <span className="mb-3 grid h-10 w-10 place-items-center rounded-full border border-orange/30 bg-orange/10 text-orange-light"><Icon name={ic} className="h-5 w-5" /></span>
                       <b className="block font-serif text-lg font-medium leading-tight">{l}</b>
@@ -316,7 +315,6 @@ export default function Home() {
                   <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-orange/30 bg-orange/10 text-orange-light"><Icon name="phone" className="h-5 w-5" /></span>
                   <span className="min-w-0 text-sm text-cream/75"><b className="mb-0.5 block text-[.66rem] font-normal uppercase tracking-[.26em] text-orange">Phone</b>
                     <a href={COMPANY.phoneHref} className="block transition hover:text-orange-light">{COMPANY.phone}</a>
-                    <a href={COMPANY.phone2Href} className="block transition hover:text-orange-light">{COMPANY.phone2}</a>
                   </span>
                 </div>
               </li>
@@ -337,6 +335,7 @@ export default function Home() {
           <div className="mt-12 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-center text-[.74rem] leading-relaxed text-cream/45">
             <div className="flex items-center gap-3 text-orange/60" aria-hidden><span className="h-px w-10 bg-orange/40" /><span className="text-[.6rem]">✦</span><span className="h-px w-10 bg-orange/40" /></div>
             <p>© {new Date().getFullYear()} {COMPANY.legalName}, Oman. All rights reserved.<br />CR {COMPANY.registration[0].value} · Informational website, online sales are not offered.</p>
+            <p className="font-serif text-base tracking-wide text-orange-light/90">{COMPANY.domain}</p>
           </div>
         </div>
       </footer>

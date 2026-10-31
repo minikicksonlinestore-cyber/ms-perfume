@@ -20,3 +20,13 @@ Logo files are in `public/`.
 
 ## Real perfume photos
 Put each product photo in `public/perfumes/` (PNG or JPG, square, plain or transparent background) and set `image: "/perfumes/dior-sauvage.jpg"` on that perfume in `lib/data.ts`. Cards without a photo show a drawn bottle.
+
+## Domain: msperfume.shop
+The site address is set in one place, `COMPANY.siteUrl` in `lib/data.ts`. It feeds the page address tags,
+the sharing preview (`public/og.jpg`), `robots.txt` and `sitemap.xml`.
+
+To make the domain live:
+1. Register `msperfume.shop` with a domain registrar.
+2. Host the `out/` folder (from `npm run build`) on any static host, and add the domain there.
+3. At the registrar, add the DNS records that host tells you to add (usually an A record or a CNAME for `@`, and a CNAME for `www`).
+4. Add a redirect from `www.msperfume.shop` to `msperfume.shop`, or the reverse, so there is one main address.

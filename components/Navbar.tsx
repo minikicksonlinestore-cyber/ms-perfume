@@ -60,7 +60,7 @@ export default function Navbar() {
     <nav className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "py-2" : "py-4"}`}>
       <div aria-hidden className={`pointer-events-none absolute inset-0 -z-10 border-b border-white/10 bg-ink/90 backdrop-blur transition-opacity duration-500 ${scrolled ? "opacity-100" : "opacity-0"}`} />
       <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-4 px-5">
-        <a href="#home" className="flex items-center gap-2.5 font-serif text-[1.7rem] tracking-wide text-cream">
+        <a href="#home" className="nav-in flex items-center gap-2.5 font-serif text-[1.7rem] tracking-wide text-cream">
           <Image src="/logo-sm.webp" alt="MS PERFUME logo" width={79} height={64} unoptimized className="h-auto w-[62px]" />
           <span>MS PERFUME<span className="text-orange">.</span></span>
         </a>
@@ -73,11 +73,14 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          <li className="mt-2 flex flex-col items-center gap-2.5 border-t border-white/10 pt-8 lg:hidden">
+            <a href={COMPANY.phoneHref} className="flex items-center gap-2.5 text-cream/85"><Icon name="phone" className="h-4 w-4 text-orange" />{COMPANY.phone}</a>
+          </li>
         </ul>
 
         <div className="flex items-center gap-3">
           <a href={COMPANY.phoneHref} className="hidden items-center gap-2 text-sm text-cream/80 transition hover:text-orange-light xl:flex">
-            <Icon name="phone" className="h-4 w-4" />
+            <Icon name="phone" className="h-4 w-4 text-orange" />
             {COMPANY.phone}
           </a>
           <button aria-label="Menu" aria-expanded={open} aria-controls="site-menu" onClick={() => setOpen(!open)} className="relative z-[60] grid h-11 w-11 place-items-center rounded-full border border-orange/50 lg:hidden">

@@ -1,12 +1,11 @@
 export const COMPANY = {
   brand: "MS PERFUME",
+  domain: "msperfume.shop",
+  siteUrl: "https://msperfume.shop",
   legalName: "North Muscat Nights for Business LLC",
   country: "Sultanate of Oman",
-  phone: "+968 94247885",
-  phoneHref: "tel:+96894247885",
-  // Second line.
-  phone2: "+968 76434164",
-  phone2Href: "tel:+96876434164",
+  phone: "+968 76434164",
+  phoneHref: "tel:+96876434164",
   email: "VIPOWER0989@OUTLOOK.COM",
   address: "Ruwi / Muttrah, Muscat Governorate, Sultanate of Oman",
   addressLine: "P.O. Box 112, P.C. 111",
