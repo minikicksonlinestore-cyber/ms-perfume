@@ -244,6 +244,7 @@ export default function Home() {
               </div>
               {[
                 { l: "Email", v: COMPANY.email, h: `mailto:${COMPANY.email}`, i: "mail" as IconName },
+                { l: "HR", v: COMPANY.hrEmail, h: `mailto:${COMPANY.hrEmail}`, i: "support" as IconName },
               ].map((i) => (
                 <a key={i.l} href={i.h} className="panel flex items-center gap-4 p-5 transition hover:border-orange/60">
                   <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-orange/30 bg-orange/10 text-orange-light"><Icon name={i.i} className="h-5 w-5" /></span>
@@ -307,6 +308,7 @@ export default function Home() {
               </ul>
               <p className="mx-auto mt-3 max-w-[300px] text-[.78rem] leading-relaxed text-cream/55">{COMPANY.address}<br />{COMPANY.addressLine}</p>
               <p className="mt-2 text-[.74rem] text-cream/45 [overflow-wrap:anywhere]">{COMPANY.email}</p>
+              <p className="mt-1 text-[.74rem] text-cream/45 [overflow-wrap:anywhere]">HR: <a href={`mailto:${COMPANY.hrEmail}`} className="text-orange-light">{COMPANY.hrEmail}</a></p>
             </div>
 
             <ul className="mx-auto hidden w-full max-w-[1000px] gap-8 text-left sm:grid sm:grid-cols-3">
@@ -318,8 +320,16 @@ export default function Home() {
                   </span>
                 </div>
               </li>
+              <li>
+                <div className="flex items-start gap-4">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-orange/30 bg-orange/10 text-orange-light"><Icon name="mail" className="h-5 w-5" /></span>
+                  <span className="min-w-0 text-sm text-cream/75 [overflow-wrap:anywhere]"><b className="mb-0.5 block text-[.66rem] font-normal uppercase tracking-[.26em] text-orange">Email</b>
+                    <a href={`mailto:${COMPANY.email}`} className="block transition hover:text-orange-light">{COMPANY.email}</a>
+                    <a href={`mailto:${COMPANY.hrEmail}`} className="block transition hover:text-orange-light"><span className="text-cream/45">HR </span>{COMPANY.hrEmail}</a>
+                  </span>
+                </div>
+              </li>
               {([
-                ["mail", "Email", COMPANY.email, `mailto:${COMPANY.email}`],
                 ["pin", "Head Quarter", `${COMPANY.address}, ${COMPANY.addressLine}`, `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY.mapQuery)}`],
               ] as [IconName, string, string, string][]).map(([ic, l, v, h]) => (
                 <li key={l}>
