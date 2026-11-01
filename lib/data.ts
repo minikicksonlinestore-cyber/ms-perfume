@@ -7,7 +7,7 @@ export const COMPANY = {
   phone: "+968 76434164",
   phoneHref: "tel:+96876434164",
   email: "VIPOWER0989@OUTLOOK.COM",
-  hrEmail: "shahid.hr@msperfume.shop",
+  hrEmail: "hr@msperfume.shop",
   address: "Ruwi / Muttrah, Muscat Governorate, Sultanate of Oman",
   addressLine: "P.O. Box 112, P.C. 111",
   addressShort: "Ruwi / Muttrah, Muscat",
